@@ -17,7 +17,7 @@ so that you can **export, version, and recreate** Geometry Node setups precisely
 |------|---------|--------|
 | **1️⃣ Export** | Reads the current node tree and writes a readable `.bndl` file. | `exportbndl.py` |
 | **2️⃣ Compile** | Converts the `.bndl` into a runnable replay script. | `bndl2py.py` |
-| **3️⃣ Replay** | Recreates the entire node graph on an active object. | `BNDL_Replay.py` |
+| **3️⃣ Replay** (Not Open Source; internal tool) | Recreates the entire node graph on an active object. | `BNDL_Replay.py` |
 
 After replay, the new Geometry Nodes modifier looks and behaves **exactly like the source**,  
 complete with datablocks, default values, and *user overrides*.
@@ -74,7 +74,7 @@ Galaxy Scale     → 6.27
 | File | Description |
 |------|--------------|
 | `exportbndl.py` | Exports current Geometry Node tree to `.bndl`. |
-| `bndl2py.py` | Converts `.bndl` into a Python replay script. |
+| `bndl2py.py` | Converts `.bndl` into a Python replay script. (not open source atm) |
 | `BNDL_Spec_v1_Release.md` | Full specification for Release 1.0. |
 | `BNDL_Replay.py` | Auto-generated script that rebuilds the node tree. |
 
@@ -97,4 +97,4 @@ Galaxy Scale     → 6.27
 
 ## License
 
-MIT License — open for all non-destructive workflows, educational and production use.
+MIT License — Spec and BNDL exporter is open for all non-destructive workflows, educational and production use. Replayer is an internal tool being developed into an add-on
