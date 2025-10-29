@@ -74,7 +74,7 @@ Galaxy Scale     → 6.27
 | File | Description |
 |------|--------------|
 | `exportbndl.py` | Exports current Geometry Node tree to `.bndl`. |
-| `bndl2py.py` | Converts `.bndl` into a Python replay script. |
+| `bndl2py.py` | Converts `.bndl` into a Python replay script. (not open source atm) |
 | `BNDL_Spec_v1_Release.md` | Full specification for Release 1.0. |
 | `BNDL_Replay.py` | Auto-generated script that rebuilds the node tree. |
 
