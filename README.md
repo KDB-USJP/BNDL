@@ -97,4 +97,4 @@ Galaxy Scale     → 6.27
 
 ## License
 
-MIT License — open for all non-destructive workflows, educational and production use.
+MIT License — Spec and BNDL exporter is open for all non-destructive workflows, educational and production use. Replayer is an internal tool being developed into an add-on
