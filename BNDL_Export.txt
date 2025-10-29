@@ -1,0 +1,838 @@
+# BNDL v1.2
+# === GROUP DEFINITIONS ===
+START GROUP NAMED Instance Setup
+Create  [ Group Output | — | ] ~  ~ #1 ; type=NodeGroupOutput
+Create  [ Group Input | — | ] ~  ~ #1 ; type=NodeGroupInput
+Create  [ Clamp | — | ] ~ Instance Scale Min ~ #1 ; type=ShaderNodeClamp
+Rename  [ Clamp #1 ] to ~ Instance Scale Min ~
+Create  [ Clamp | — | ] ~ Instance Scale Max ~ #2 ; type=ShaderNodeClamp
+Rename  [ Clamp #2 ] to ~ Instance Scale Max ~
+Create  [ Instance on Points | — | ] ~  ~ #1 ; type=GeometryNodeInstanceOnPoints
+Create  [ Object Info | — | ] ~  ~ #1 ; type=GeometryNodeObjectInfo
+Create  [ Random Value | — | ] ~  ~ #1 ; type=FunctionNodeRandomValue
+Create  [ Combine XYZ | — | ] ~  ~ #1 ; type=ShaderNodeCombineXYZ
+Declare Inputs  [ Group Output #1 ] : ⦿ Instances
+Expose  [ Group Output #1 ] ⦿ input
+Declare Outputs [ Group Input #1 ] : ○ Instance Scale Min , ○ Instance Scale Max , ○ Points , ○ Instance Object , ○ Instance Scale Seed
+Expose  [ Group Input #1 ] ○ Instance Scale Min
+Expose  [ Group Input #1 ] ○ Instance Scale Max
+Expose  [ Group Input #1 ] ○ Points
+Expose  [ Group Input #1 ] ○ Instance Object
+Expose  [ Group Input #1 ] ○ Instance Scale Seed
+Expose  [ Group Input #1 ] ○ output
+Set  [ Group Input #1 ]:
+§ Instance Scale Min § to <0.0>
+§ Instance Scale Max § to <20.0>
+§ Instance Object § to ⊞GLX_Star⊞
+§ Instance Scale Seed § to <117>
+Set  [ Group Input #1 ]:
+§ Instance Scale Min::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Min::Structure Type § to 'AUTO'
+§ Instance Scale Min::Subtype § to 'NONE'
+§ Instance Scale Min::Min § to <-10000.0>
+§ Instance Scale Min::Max § to <10000.0>
+§ Instance Scale Min::Hide Value § to <False>
+§ Instance Scale Min::Hide in Modifier § to <False>
+§ Instance Scale Max::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Max::Structure Type § to 'AUTO'
+§ Instance Scale Max::Subtype § to 'NONE'
+§ Instance Scale Max::Min § to <-10000.0>
+§ Instance Scale Max::Max § to <10000.0>
+§ Instance Scale Max::Hide Value § to <False>
+§ Instance Scale Max::Hide in Modifier § to <False>
+§ Points::Description § to ~Points to instance on~
+§ Points::Socket Type § to 'NodeSocketGeometry'
+§ Points::Structure Type § to 'AUTO'
+§ Points::Hide Value § to <False>
+§ Points::Hide in Modifier § to <False>
+§ Instance Object::Socket Type § to 'NodeSocketObject'
+§ Instance Object::Structure Type § to 'AUTO'
+§ Instance Object::Hide Value § to <False>
+§ Instance Object::Hide in Modifier § to <False>
+§ Instance Scale Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Scale Seed::Structure Type § to 'AUTO'
+§ Instance Scale Seed::Subtype § to 'NONE'
+§ Instance Scale Seed::Min § to <-10000>
+§ Instance Scale Seed::Max § to <10000>
+§ Instance Scale Seed::Hide Value § to <False>
+§ Instance Scale Seed::Hide in Modifier § to <False>
+Set  [ Group Input #1 ]:
+§ Instance Scale Min::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Min::Structure Type § to 'AUTO'
+§ Instance Scale Min::Subtype § to 'NONE'
+§ Instance Scale Min::Min § to <-10000.0>
+§ Instance Scale Min::Max § to <10000.0>
+§ Instance Scale Min::Hide Value § to <False>
+§ Instance Scale Min::Hide in Modifier § to <False>
+§ Instance Scale Max::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Max::Structure Type § to 'AUTO'
+§ Instance Scale Max::Subtype § to 'NONE'
+§ Instance Scale Max::Min § to <-10000.0>
+§ Instance Scale Max::Max § to <10000.0>
+§ Instance Scale Max::Hide Value § to <False>
+§ Instance Scale Max::Hide in Modifier § to <False>
+§ Points::Description § to ~Points to instance on~
+§ Points::Socket Type § to 'NodeSocketGeometry'
+§ Points::Structure Type § to 'AUTO'
+§ Points::Hide Value § to <False>
+§ Points::Hide in Modifier § to <False>
+§ Instance Object::Socket Type § to 'NodeSocketObject'
+§ Instance Object::Structure Type § to 'AUTO'
+§ Instance Object::Hide Value § to <False>
+§ Instance Object::Hide in Modifier § to <False>
+§ Instance Scale Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Scale Seed::Structure Type § to 'AUTO'
+§ Instance Scale Seed::Subtype § to 'NONE'
+§ Instance Scale Seed::Min § to <-10000>
+§ Instance Scale Seed::Max § to <10000>
+§ Instance Scale Seed::Hide Value § to <False>
+§ Instance Scale Seed::Hide in Modifier § to <False>
+Declare Inputs  [ Clamp #1 ] : ⦿ Value , ⦿ Min , ⦿ Max
+Declare Outputs [ Clamp #1 ] : ○ Result
+Declare Inputs  [ Clamp #2 ] : ⦿ Value , ⦿ Min , ⦿ Max
+Declare Outputs [ Clamp #2 ] : ○ Result
+Declare Inputs  [ Instance on Points #1 ] : ⦿ Points , ⦿ Selection , ⦿ Instance , ⦿ Pick Instance , ⦿ Instance Index , ⦿ Rotation , ⦿ Scale
+Declare Outputs [ Instance on Points #1 ] : ○ Instances
+Declare Inputs  [ Object Info #1 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #1 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Declare Inputs  [ Random Value #1 ] : ⦿ Min , ⦿ Max , ⦿ Min[2] , ⦿ Max[2] , ⦿ Min[3] , ⦿ Max[3] , ⦿ Probability , ⦿ ID , ⦿ Seed
+Declare Outputs [ Random Value #1 ] : ○ Value , ○ Value[2] , ○ Value[3] , ○ Value[4]
+Declare Inputs  [ Combine XYZ #1 ] : ⦿ X , ⦿ Y , ⦿ Z
+Declare Outputs [ Combine XYZ #1 ] : ○ Vector
+Set  [ Group Output #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Active Output § to <True>
+Set  [ Group Input #1 ]:
+§ Instance Scale Max § to <20.0>
+§ Instance Scale Seed § to <117>
+§ Absolute Location § to <<Vector (-1010.7747, -104.3950)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <80.0>
+§ bl_width_max § to <400.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Clamp #1 ]:
+§ Value § to <0.029999999329447746>
+§ Max § to <20.0>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Clamp Type § to ©Min Max©
+Set  [ Clamp #2 ]:
+§ Value § to <0.5>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Clamp Type § to ©Min Max©
+Set  [ Instance on Points #1 ]:
+§ Selection § to <True>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Object Info #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Relative©
+Set  [ Random Value #1 ]:
+§ Max § to <1.0, 1.0, 1.0>
+§ Max[3] § to <100>
+§ Probability § to <0.5>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Data Type § to ©Float©
+Set  [ Combine XYZ #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Connect  [ Object Info #1 ] ○ Geometry  to  [ Instance on Points #1 ] ⦿ Instance
+Connect⋯  [ Clamp #1 ] ○ Result  to  [ Random Value #1 ] ⦿ Min[2]
+Connect⋯  [ Clamp #2 ] ○ Result  to  [ Random Value #1 ] ⦿ Max[2]
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Min  to  [ Clamp #1 ] ⦿ Min
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Max  to  [ Clamp #2 ] ⦿ Max
+Connect  [ Instance on Points #1 ] ○ Instances  to  [ Group Output #1 ] ⦿ Instances
+Connect  [ Group Input #1 ] ○ Instance Object  to  [ Object Info #1 ] ⦿ Object
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Seed  to  [ Random Value #1 ] ⦿ Seed
+Connect  [ Group Input #1 ] ○ Points  to  [ Instance on Points #1 ] ⦿ Points
+Connect⋯  [ Random Value #1 ] ○ Value[2]  to  [ Combine XYZ #1 ] ⦿ X
+Connect⋯  [ Random Value #1 ] ○ Value[2]  to  [ Combine XYZ #1 ] ⦿ Y
+Connect⋯  [ Random Value #1 ] ○ Value[2]  to  [ Combine XYZ #1 ] ⦿ Z
+Connect⋯  [ Combine XYZ #1 ] ○ Vector  to  [ Instance on Points #1 ] ⦿ Scale
+END GROUP NAMED Instance Setup
+START GROUP NAMED Galaxy_disk_main_setup
+Create  [ Group Output | — | ] ~  ~ #1 ; type=NodeGroupOutput
+Create  [ Group Input | — | ] ~  ~ #1 ; type=NodeGroupInput
+Create  [ Mesh to Volume | — | ] ~  ~ #1 ; type=GeometryNodeMeshToVolume
+Create  [ Distribute Points in Volume | — | ] ~  ~ #1 ; type=GeometryNodeDistributePointsInVolume
+Create  [ Transform Geometry | — | ] ~  ~ #1 ; type=GeometryNodeTransform
+Create  [ Value | — | ] ~ Galaxy Scale Base ~ #1 ; type=ShaderNodeValue
+Rename  [ Value #1 ] to ~ Galaxy Scale Base ~
+Create  [ Index Switch | — | ] ~  ~ #1 ; type=GeometryNodeIndexSwitch
+Adjust  [ Index Switch #1 ]  # Cases # to <4>
+Create  [ Group |  | ] ~ Galaxy Meshes ~ #1 ; type=GeometryNodeGroup
+Create  [ Combine XYZ | — | ] ~ Gal_User_Scale_multiplier ~ #1 ; type=ShaderNodeCombineXYZ
+Rename  [ Combine XYZ #1 ] to ~ Gal_User_Scale_multiplier ~
+Create  [ Combine XYZ | — | ] ~ Galaxy Scale Base ~ #2 ; type=ShaderNodeCombineXYZ
+Rename  [ Combine XYZ #2 ] to ~ Galaxy Scale Base ~
+Create  [ Vector Math | Multiply | ] ~ Galaxy Scaler Multiply Base_x_usermult ~ #1 ; type=ShaderNodeVectorMath
+Rename  [ Vector Math #1 ] to ~ Galaxy Scaler Multiply Base_x_usermult ~
+Declare Inputs  [ Group Output #1 ] : ⦿ Points
+Expose  [ Group Output #1 ] ⦿ input
+Declare Outputs [ Group Input #1 ] : ○ Set Galaxy Disk Shape , ○ Galaxy Scale , ○ Volume Density , ○ Interior Band Width , ○ Instance Per Voxel Density , ○ Instance Distribution Seed , ○ Voxel Amount
+Expose  [ Group Input #1 ] ○ Set Galaxy Disk Shape
+Expose  [ Group Input #1 ] ○ Galaxy Scale
+Expose  [ Group Input #1 ] ○ Volume Density
+Expose  [ Group Input #1 ] ○ Interior Band Width
+Expose  [ Group Input #1 ] ○ Instance Per Voxel Density
+Expose  [ Group Input #1 ] ○ Instance Distribution Seed
+Expose  [ Group Input #1 ] ○ Voxel Amount
+Expose  [ Group Input #1 ] ○ output
+Set  [ Group Input #1 ]:
+§ Set Galaxy Disk Shape § to <0>
+§ Galaxy Scale § to <1.0>
+§ Volume Density § to <50.0>
+§ Interior Band Width § to <0.0>
+§ Instance Per Voxel Density § to <2.0>
+§ Instance Distribution Seed § to <-117>
+§ Voxel Amount § to <500.0>
+Set  [ Group Input #1 ]:
+§ Set Galaxy Disk Shape::Description § to ~This sets the value of the disk-mesh to use. There are 4 choices (0-3)~
+§ Set Galaxy Disk Shape::Socket Type § to 'NodeSocketInt'
+§ Set Galaxy Disk Shape::Structure Type § to 'AUTO'
+§ Set Galaxy Disk Shape::Subtype § to 'NONE'
+§ Set Galaxy Disk Shape::Min § to <0>
+§ Set Galaxy Disk Shape::Max § to <3>
+§ Set Galaxy Disk Shape::Hide Value § to <False>
+§ Set Galaxy Disk Shape::Hide in Modifier § to <False>
+§ Galaxy Scale::Description § to ~The user set scale of the galaxy; it is multiplied by the "galaxy scale base" value under "galactic disk"~
+§ Galaxy Scale::Socket Type § to 'NodeSocketFloat'
+§ Galaxy Scale::Structure Type § to 'AUTO'
+§ Galaxy Scale::Subtype § to 'NONE'
+§ Galaxy Scale::Min § to <-3.4028234663852886e+38>
+§ Galaxy Scale::Max § to <3.4028234663852886e+38>
+§ Galaxy Scale::Hide Value § to <False>
+§ Galaxy Scale::Hide in Modifier § to <False>
+§ Volume Density::Description § to ~The density of the volume~
+§ Volume Density::Socket Type § to 'NodeSocketFloat'
+§ Volume Density::Structure Type § to 'AUTO'
+§ Volume Density::Subtype § to 'NONE'
+§ Volume Density::Min § to <0.009999999776482582>
+§ Volume Density::Max § to <3.4028234663852886e+38>
+§ Volume Density::Hide Value § to <False>
+§ Volume Density::Hide in Modifier § to <False>
+§ Interior Band Width::Description § to ~Width of the gradient inside of the mesh~
+§ Interior Band Width::Socket Type § to 'NodeSocketFloat'
+§ Interior Band Width::Structure Type § to 'AUTO'
+§ Interior Band Width::Subtype § to 'DISTANCE'
+§ Interior Band Width::Min § to <9.999999747378752e-05>
+§ Interior Band Width::Max § to <3.4028234663852886e+38>
+§ Interior Band Width::Hide Value § to <False>
+§ Interior Band Width::Hide in Modifier § to <False>
+§ Instance Per Voxel Density::Description § to ~Number of points to sample per unit volume~
+§ Instance Per Voxel Density::Socket Type § to 'NodeSocketFloat'
+§ Instance Per Voxel Density::Structure Type § to 'AUTO'
+§ Instance Per Voxel Density::Subtype § to 'NONE'
+§ Instance Per Voxel Density::Min § to <0.0>
+§ Instance Per Voxel Density::Max § to <100000.0>
+§ Instance Per Voxel Density::Hide Value § to <False>
+§ Instance Per Voxel Density::Hide in Modifier § to <False>
+§ Instance Distribution Seed::Description § to ~Seed used by the random number generator to generate random points~
+§ Instance Distribution Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Distribution Seed::Structure Type § to 'AUTO'
+§ Instance Distribution Seed::Subtype § to 'NONE'
+§ Instance Distribution Seed::Min § to <-10000>
+§ Instance Distribution Seed::Max § to <10000>
+§ Instance Distribution Seed::Hide Value § to <False>
+§ Instance Distribution Seed::Hide in Modifier § to <False>
+§ Voxel Amount::Socket Type § to 'NodeSocketFloat'
+§ Voxel Amount::Structure Type § to 'AUTO'
+§ Voxel Amount::Subtype § to 'NONE'
+§ Voxel Amount::Min § to <0.0>
+§ Voxel Amount::Max § to <3.4028234663852886e+38>
+§ Voxel Amount::Hide Value § to <False>
+§ Voxel Amount::Hide in Modifier § to <False>
+Set  [ Group Input #1 ]:
+§ Set Galaxy Disk Shape::Description § to ~This sets the value of the disk-mesh to use. There are 4 choices (0-3)~
+§ Set Galaxy Disk Shape::Socket Type § to 'NodeSocketInt'
+§ Set Galaxy Disk Shape::Structure Type § to 'AUTO'
+§ Set Galaxy Disk Shape::Subtype § to 'NONE'
+§ Set Galaxy Disk Shape::Min § to <0>
+§ Set Galaxy Disk Shape::Max § to <3>
+§ Set Galaxy Disk Shape::Hide Value § to <False>
+§ Set Galaxy Disk Shape::Hide in Modifier § to <False>
+§ Galaxy Scale::Description § to ~The user set scale of the galaxy; it is multiplied by the "galaxy scale base" value under "galactic disk"~
+§ Galaxy Scale::Socket Type § to 'NodeSocketFloat'
+§ Galaxy Scale::Structure Type § to 'AUTO'
+§ Galaxy Scale::Subtype § to 'NONE'
+§ Galaxy Scale::Min § to <-3.4028234663852886e+38>
+§ Galaxy Scale::Max § to <3.4028234663852886e+38>
+§ Galaxy Scale::Hide Value § to <False>
+§ Galaxy Scale::Hide in Modifier § to <False>
+§ Volume Density::Description § to ~The density of the volume~
+§ Volume Density::Socket Type § to 'NodeSocketFloat'
+§ Volume Density::Structure Type § to 'AUTO'
+§ Volume Density::Subtype § to 'NONE'
+§ Volume Density::Min § to <0.009999999776482582>
+§ Volume Density::Max § to <3.4028234663852886e+38>
+§ Volume Density::Hide Value § to <False>
+§ Volume Density::Hide in Modifier § to <False>
+§ Interior Band Width::Description § to ~Width of the gradient inside of the mesh~
+§ Interior Band Width::Socket Type § to 'NodeSocketFloat'
+§ Interior Band Width::Structure Type § to 'AUTO'
+§ Interior Band Width::Subtype § to 'DISTANCE'
+§ Interior Band Width::Min § to <9.999999747378752e-05>
+§ Interior Band Width::Max § to <3.4028234663852886e+38>
+§ Interior Band Width::Hide Value § to <False>
+§ Interior Band Width::Hide in Modifier § to <False>
+§ Instance Per Voxel Density::Description § to ~Number of points to sample per unit volume~
+§ Instance Per Voxel Density::Socket Type § to 'NodeSocketFloat'
+§ Instance Per Voxel Density::Structure Type § to 'AUTO'
+§ Instance Per Voxel Density::Subtype § to 'NONE'
+§ Instance Per Voxel Density::Min § to <0.0>
+§ Instance Per Voxel Density::Max § to <100000.0>
+§ Instance Per Voxel Density::Hide Value § to <False>
+§ Instance Per Voxel Density::Hide in Modifier § to <False>
+§ Instance Distribution Seed::Description § to ~Seed used by the random number generator to generate random points~
+§ Instance Distribution Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Distribution Seed::Structure Type § to 'AUTO'
+§ Instance Distribution Seed::Subtype § to 'NONE'
+§ Instance Distribution Seed::Min § to <-10000>
+§ Instance Distribution Seed::Max § to <10000>
+§ Instance Distribution Seed::Hide Value § to <False>
+§ Instance Distribution Seed::Hide in Modifier § to <False>
+§ Voxel Amount::Socket Type § to 'NodeSocketFloat'
+§ Voxel Amount::Structure Type § to 'AUTO'
+§ Voxel Amount::Subtype § to 'NONE'
+§ Voxel Amount::Min § to <0.0>
+§ Voxel Amount::Max § to <3.4028234663852886e+38>
+§ Voxel Amount::Hide Value § to <False>
+§ Voxel Amount::Hide in Modifier § to <False>
+Declare Inputs  [ Mesh to Volume #1 ] : ⦿ Mesh , ⦿ Density , ⦿ Voxel Size , ⦿ Voxel Amount , ⦿ Interior Band Width
+Declare Outputs [ Mesh to Volume #1 ] : ○ Volume
+Declare Inputs  [ Distribute Points in Volume #1 ] : ⦿ Volume , ⦿ Density , ⦿ Seed , ⦿ Spacing , ⦿ Threshold
+Declare Outputs [ Distribute Points in Volume #1 ] : ○ Points
+Declare Inputs  [ Transform Geometry #1 ] : ⦿ Geometry , ⦿ Translation , ⦿ Rotation , ⦿ Scale , ⦿ Transform
+Declare Outputs [ Transform Geometry #1 ] : ○ Geometry
+Declare Outputs [ Value #1 ] : ○ Value
+Declare Inputs  [ Index Switch #1 ] : ⦿ Index , ⦿ 0 , ⦿ 1 , ⦿ 2 , ⦿ 3 , ⦿ input
+Declare Outputs [ Index Switch #1 ] : ○ Output
+Declare Outputs [ Group #1 ] : ○ disk1 , ○ disk2 , ○ disk3 , ○ disk4
+Declare Inputs  [ Combine XYZ #1 ] : ⦿ X , ⦿ Y , ⦿ Z
+Declare Outputs [ Combine XYZ #1 ] : ○ Vector
+Declare Inputs  [ Combine XYZ #2 ] : ⦿ X , ⦿ Y , ⦿ Z
+Declare Outputs [ Combine XYZ #2 ] : ○ Vector
+Declare Inputs  [ Vector Math #1 ] : ⦿ Vector , ⦿ Vector[2] , ⦿ Vector[3] , ⦿ Scale
+Declare Outputs [ Vector Math #1 ] : ○ Vector , ○ Value
+Set  [ Group Output #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Active Output § to <True>
+Set  [ Group Input #1 ]:
+§ Galaxy Scale § to <1.0>
+§ Volume Density § to <50.0>
+§ Instance Per Voxel Density § to <2.0>
+§ Instance Distribution Seed § to <-117>
+§ Voxel Amount § to <500.0>
+§ Absolute Location § to <<Vector (-756.9039, 54.5480)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <80.0>
+§ bl_width_max § to <400.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Mesh to Volume #1 ]:
+§ Voxel Size § to <0.30000001192092896>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Resolution Mode § to ©Amount©
+Set  [ Distribute Points in Volume #1 ]:
+§ Spacing § to <0.30000001192092896, 0.30000001192092896, 0.30000001192092896>
+§ Threshold § to <0.10000000149011612>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Distribution Method § to ©Random©
+Set  [ Transform Geometry #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Mode § to ©Components©
+Set  [ Value #1 ]:
+§ Value § to <4.5>
+§ Absolute Location § to <<Vector (-625.6940, -256.4377)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <100.0>
+§ bl_width_max § to <700.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Index Switch #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Data Type § to ©Geometry©
+Set  [ Group #1 ]:
+§ Absolute Location § to <<Vector (-430.3606, 142.3328)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <60.0>
+§ bl_width_max § to <700.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Combine XYZ #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Combine XYZ #2 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Vector Math #1 ]:
+§ Scale § to <1.0>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Operation § to ©Multiply©
+Connect  [ Mesh to Volume #1 ] ○ Volume  to  [ Distribute Points in Volume #1 ] ⦿ Volume
+Connect  [ Group #1 ] ○ disk3  to  [ Index Switch #1 ] ⦿ 2
+Connect  [ Group #1 ] ○ disk4  to  [ Index Switch #1 ] ⦿ 3
+Connect  [ Index Switch #1 ] ○ Output  to  [ Transform Geometry #1 ] ⦿ Geometry
+Connect  [ Group #1 ] ○ disk2  to  [ Index Switch #1 ] ⦿ 1
+Connect  [ Transform Geometry #1 ] ○ Geometry  to  [ Mesh to Volume #1 ] ⦿ Mesh
+Connect  [ Group #1 ] ○ disk1  to  [ Index Switch #1 ] ⦿ 0
+Connect⋯  [ Group Input #1 ] ○ Instance Distribution Seed  to  [ Distribute Points in Volume #1 ] ⦿ Seed
+Connect⋯  [ Group Input #1 ] ○ Instance Per Voxel Density  to  [ Distribute Points in Volume #1 ] ⦿ Density
+Connect⋯  [ Group Input #1 ] ○ Interior Band Width  to  [ Mesh to Volume #1 ] ⦿ Interior Band Width
+Connect⋯  [ Group Input #1 ] ○ Volume Density  to  [ Mesh to Volume #1 ] ⦿ Density
+Connect  [ Distribute Points in Volume #1 ] ○ Points  to  [ Group Output #1 ] ⦿ Points
+Connect⋯  [ Group Input #1 ] ○ Set Galaxy Disk Shape  to  [ Index Switch #1 ] ⦿ Index
+Connect⋯  [ Group Input #1 ] ○ Voxel Amount  to  [ Mesh to Volume #1 ] ⦿ Voxel Amount
+Connect⋯  [ Vector Math #1 ] ○ Vector  to  [ Transform Geometry #1 ] ⦿ Scale
+Connect⋯  [ Combine XYZ #1 ] ○ Vector  to  [ Vector Math #1 ] ⦿ Vector
+Connect⋯  [ Combine XYZ #2 ] ○ Vector  to  [ Vector Math #1 ] ⦿ Vector[2]
+Connect⋯  [ Group Input #1 ] ○ Galaxy Scale  to  [ Combine XYZ #1 ] ⦿ X
+Connect⋯  [ Value #1 ] ○ Value  to  [ Combine XYZ #2 ] ⦿ X
+Connect⋯  [ Group Input #1 ] ○ Galaxy Scale  to  [ Combine XYZ #1 ] ⦿ Y
+Connect⋯  [ Group Input #1 ] ○ Galaxy Scale  to  [ Combine XYZ #1 ] ⦿ Z
+Connect⋯  [ Value #1 ] ○ Value  to  [ Combine XYZ #2 ] ⦿ Y
+Connect⋯  [ Value #1 ] ○ Value  to  [ Combine XYZ #2 ] ⦿ Z
+END GROUP NAMED Galaxy_disk_main_setup
+START GROUP NAMED Galaxy Meshes
+Create  [ Group Output | — | ] ~  ~ #1 ; type=NodeGroupOutput
+Create  [ Group Input | — | ] ~  ~ #1 ; type=NodeGroupInput
+Create  [ Object Info | — | ] ~  ~ #1 ; type=GeometryNodeObjectInfo
+Create  [ Object Info | — | ] ~  ~ #2 ; type=GeometryNodeObjectInfo
+Create  [ Object Info | — | ] ~  ~ #3 ; type=GeometryNodeObjectInfo
+Create  [ Object Info | — | ] ~  ~ #4 ; type=GeometryNodeObjectInfo
+Declare Inputs  [ Group Output #1 ] : ⦿ disk1 , ⦿ disk2 , ⦿ disk3 , ⦿ disk4
+Expose  [ Group Output #1 ] ⦿ input
+Expose  [ Group Input #1 ] ○ output
+Declare Inputs  [ Object Info #1 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #1 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Declare Inputs  [ Object Info #2 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #2 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Declare Inputs  [ Object Info #3 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #3 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Declare Inputs  [ Object Info #4 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #4 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Set  [ Group Output #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Active Output § to <True>
+Set  [ Group Input #1 ]:
+§ Absolute Location § to <<Vector (-507.9010, 77.9405)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <80.0>
+§ bl_width_max § to <400.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Object Info #1 ]:
+§ Object § to ⊞0_smooth_galaxy⊞
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Original©
+Set  [ Object Info #2 ]:
+§ Object § to ⊞1_galaxy_med_bulge⊞
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Original©
+Set  [ Object Info #3 ]:
+§ Object § to ⊞2_galaxy_thin_bulge⊞
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Original©
+Set  [ Object Info #4 ]:
+§ Object § to ⊞3_incline_disk⊞
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Original©
+Connect  [ Object Info #1 ] ○ Geometry  to  [ Group Output #1 ] ⦿ disk1
+Connect  [ Object Info #2 ] ○ Geometry  to  [ Group Output #1 ] ⦿ disk2
+Connect  [ Object Info #3 ] ○ Geometry  to  [ Group Output #1 ] ⦿ disk3
+Connect  [ Object Info #4 ] ○ Geometry  to  [ Group Output #1 ] ⦿ disk4
+END GROUP NAMED Galaxy Meshes
+
+# === TOP LEVEL ===
+Create  [ Group Output | — | ] ~  ~ #1 ; type=NodeGroupOutput
+Create  [ Group Input | — | ] ~  ~ #1 ; type=NodeGroupInput
+Create  [ Group |  | ] ~ Instance Setup ~ #1 ; type=GeometryNodeGroup
+Create  [ Set Material | — | ] ~  ~ #1 ; type=GeometryNodeSetMaterial
+Create  [ Random Value | — | ] ~  ~ #1 ; type=FunctionNodeRandomValue
+Create  [ Float Curve | — | ] ~  ~ #1 ; type=ShaderNodeFloatCurve
+Create  [ Math | Absolute | ] ~  ~ #1 ; type=ShaderNodeMath
+Create  [ Delete Geometry | — | ] ~  ~ #1 ; type=GeometryNodeDeleteGeometry
+Create  [ Object Info | — | ] ~  ~ #1 ; type=GeometryNodeObjectInfo
+Create  [ Geometry Proximity | — | ] ~  ~ #1 ; type=GeometryNodeProximity
+Create  [ Group |  | ] ~ Galaxy_disk_main_setup ~ #2 ; type=GeometryNodeGroup
+Rename  [ Group #2 ] to ~ Galaxy Disk Main Setup ~
+Declare Inputs  [ Group Output #1 ] : ⦿ Instances
+Set  [ Group Output #1 ]:
+§ Instances::Socket Type § to 'NodeSocketGeometry'
+§ Instances::Structure Type § to 'AUTO'
+§ Instances::Hide in Modifier § to <False>
+§ Instances::Description § to ~Instances Output~
+Declare Outputs [ Group Input #1 ] : ○ Set Galaxy Disk Shape , ○ Galaxy Scale , ○ Instance Material , ○ Instance Scale Min , ○ Instance Scale Max , ○ Instance Scale Seed , ○ Instance Distribution Seed , ○ Voxel Amount , ○ Volume Density , ○ Instance Per Voxel Density , ○ Instance Object , ○ Falloff Object , ○ Falloff Random Seed , ○ Falloff Gross Radius , ○ Volume Interior Band Width
+Set  [ Group Input #1 ]:
+§ Set Galaxy Disk Shape § to <1>
+§ Galaxy Scale § to <6.5>
+§ Instance Material § to ❆GLX_Emit❆
+§ Instance Scale Min § to <0.019999999552965164>
+§ Instance Scale Max § to <0.20000000298023224>
+§ Instance Scale Seed § to <69>
+§ Instance Distribution Seed § to <-117>
+§ Voxel Amount § to <500.0>
+§ Volume Density § to <50.0>
+§ Instance Per Voxel Density § to <2.0>
+§ Instance Object § to ⊞GLX_Star⊞
+§ Falloff Object § to ⊞Galaxia_Center⊞
+§ Falloff Random Seed § to <1111>
+§ Falloff Gross Radius § to <1.0>
+§ Volume Interior Band Width § to <0.0>
+Set  [ Group Input #1 ]:
+§ Set Galaxy Disk Shape::Description § to ~This integer set the shape of the Galaxy (0-3)~
+§ Set Galaxy Disk Shape::Socket Type § to 'NodeSocketInt'
+§ Set Galaxy Disk Shape::Structure Type § to 'AUTO'
+§ Set Galaxy Disk Shape::Subtype § to 'NONE'
+§ Set Galaxy Disk Shape::Min § to <0>
+§ Set Galaxy Disk Shape::Max § to <3>
+§ Set Galaxy Disk Shape::Hide Value § to <False>
+§ Set Galaxy Disk Shape::Hide in Modifier § to <False>
+§ Galaxy Scale::Description § to ~This is the user-set scale of the galaxy.~
+§ Galaxy Scale::Socket Type § to 'NodeSocketFloat'
+§ Galaxy Scale::Structure Type § to 'AUTO'
+§ Galaxy Scale::Subtype § to 'NONE'
+§ Galaxy Scale::Min § to <0.0>
+§ Galaxy Scale::Max § to <20.0>
+§ Galaxy Scale::Hide Value § to <False>
+§ Galaxy Scale::Hide in Modifier § to <False>
+§ Instance Material::Description § to ~This is the Material of the instance object (the starts, usually but could be anything)~
+§ Instance Material::Socket Type § to 'NodeSocketMaterial'
+§ Instance Material::Structure Type § to 'AUTO'
+§ Instance Material::Hide Value § to <False>
+§ Instance Material::Hide in Modifier § to <False>
+§ Instance Scale Min::Description § to ~The minimum scale of the instance objects~
+§ Instance Scale Min::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Min::Structure Type § to 'AUTO'
+§ Instance Scale Min::Subtype § to 'NONE'
+§ Instance Scale Min::Min § to <0.0>
+§ Instance Scale Min::Max § to <5.0>
+§ Instance Scale Min::Hide Value § to <False>
+§ Instance Scale Min::Hide in Modifier § to <False>
+§ Instance Scale Max::Description § to ~The maximum scale of the instance objects~
+§ Instance Scale Max::Socket Type § to 'NodeSocketFloat'
+§ Instance Scale Max::Structure Type § to 'AUTO'
+§ Instance Scale Max::Subtype § to 'NONE'
+§ Instance Scale Max::Min § to <0.0010000000474974513>
+§ Instance Scale Max::Max § to <5.0>
+§ Instance Scale Max::Hide Value § to <False>
+§ Instance Scale Max::Hide in Modifier § to <False>
+§ Instance Scale Seed::Description § to ~A randomizer for scale~
+§ Instance Scale Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Scale Seed::Structure Type § to 'AUTO'
+§ Instance Scale Seed::Subtype § to 'NONE'
+§ Instance Scale Seed::Min § to <-10000>
+§ Instance Scale Seed::Max § to <10000>
+§ Instance Scale Seed::Hide Value § to <False>
+§ Instance Scale Seed::Hide in Modifier § to <False>
+§ Instance Distribution Seed::Description § to ~Seed used by the random number generator to generate random points~
+§ Instance Distribution Seed::Socket Type § to 'NodeSocketInt'
+§ Instance Distribution Seed::Structure Type § to 'AUTO'
+§ Instance Distribution Seed::Subtype § to 'NONE'
+§ Instance Distribution Seed::Min § to <-10000>
+§ Instance Distribution Seed::Max § to <10000>
+§ Instance Distribution Seed::Hide Value § to <False>
+§ Instance Distribution Seed::Hide in Modifier § to <False>
+§ Voxel Amount::Description § to ~How many voxels the volume is split into. Higher numbers yield better results, higher processing.~
+§ Voxel Amount::Socket Type § to 'NodeSocketFloat'
+§ Voxel Amount::Structure Type § to 'AUTO'
+§ Voxel Amount::Subtype § to 'NONE'
+§ Voxel Amount::Min § to <0.0>
+§ Voxel Amount::Max § to <3.4028234663852886e+38>
+§ Voxel Amount::Hide Value § to <False>
+§ Voxel Amount::Hide in Modifier § to <False>
+§ Volume Density::Description § to ~Overall density of the volume~
+§ Volume Density::Socket Type § to 'NodeSocketFloat'
+§ Volume Density::Structure Type § to 'AUTO'
+§ Volume Density::Subtype § to 'NONE'
+§ Volume Density::Min § to <0.009999999776482582>
+§ Volume Density::Max § to <3.4028234663852886e+38>
+§ Volume Density::Hide Value § to <False>
+§ Volume Density::Hide in Modifier § to <False>
+§ Instance Per Voxel Density::Description § to ~Number of points to sample per unit volume~
+§ Instance Per Voxel Density::Socket Type § to 'NodeSocketFloat'
+§ Instance Per Voxel Density::Structure Type § to 'AUTO'
+§ Instance Per Voxel Density::Subtype § to 'NONE'
+§ Instance Per Voxel Density::Min § to <0.0>
+§ Instance Per Voxel Density::Max § to <100000.0>
+§ Instance Per Voxel Density::Hide Value § to <False>
+§ Instance Per Voxel Density::Hide in Modifier § to <False>
+§ Instance Object::Description § to ~The object that will be used to create geometry in the volume (such as a sphere for stars), but can be anything.~
+§ Instance Object::Socket Type § to 'NodeSocketObject'
+§ Instance Object::Structure Type § to 'AUTO'
+§ Instance Object::Hide Value § to <False>
+§ Instance Object::Hide in Modifier § to <False>
+§ Falloff Object::Description § to ~Falloff Object to use as 0,0 for distance-based falloff.~
+§ Falloff Object::Socket Type § to 'NodeSocketObject'
+§ Falloff Object::Structure Type § to 'AUTO'
+§ Falloff Object::Hide Value § to <False>
+§ Falloff Object::Hide in Modifier § to <False>
+§ Falloff Random Seed::Description § to ~Changes the seed that determines randomization of instance deletion~
+§ Falloff Random Seed::Socket Type § to 'NodeSocketInt'
+§ Falloff Random Seed::Structure Type § to 'AUTO'
+§ Falloff Random Seed::Subtype § to 'NONE'
+§ Falloff Random Seed::Min § to <-10000>
+§ Falloff Random Seed::Max § to <10000>
+§ Falloff Random Seed::Hide Value § to <False>
+§ Falloff Random Seed::Hide in Modifier § to <False>
+§ Falloff Gross Radius::Description § to ~at 1, goes to disk edge. For values from 0-1, lower values reduces disk size.~
+§ Falloff Gross Radius::Socket Type § to 'NodeSocketFloat'
+§ Falloff Gross Radius::Structure Type § to 'AUTO'
+§ Falloff Gross Radius::Subtype § to 'FACTOR'
+§ Falloff Gross Radius::Min § to <0.0>
+§ Falloff Gross Radius::Max § to <1.0>
+§ Falloff Gross Radius::Hide Value § to <False>
+§ Falloff Gross Radius::Hide in Modifier § to <False>
+§ Volume Interior Band Width::Description § to ~Width of the gradient inside of the mesh~
+§ Volume Interior Band Width::Socket Type § to 'NodeSocketFloat'
+§ Volume Interior Band Width::Structure Type § to 'AUTO'
+§ Volume Interior Band Width::Subtype § to 'DISTANCE'
+§ Volume Interior Band Width::Min § to <9.999999747378752e-05>
+§ Volume Interior Band Width::Max § to <3.4028234663852886e+38>
+§ Volume Interior Band Width::Hide Value § to <False>
+§ Volume Interior Band Width::Hide in Modifier § to <False>
+Declare Inputs  [ Group #1 ] : ⦿ Instance Scale Min , ⦿ Instance Scale Max , ⦿ Points , ⦿ Instance Object , ⦿ Instance Scale Seed
+Declare Outputs [ Group #1 ] : ○ Instances
+Declare Inputs  [ Set Material #1 ] : ⦿ Geometry , ⦿ Selection , ⦿ Material
+Declare Outputs [ Set Material #1 ] : ○ Geometry
+Declare Inputs  [ Random Value #1 ] : ⦿ Min , ⦿ Max , ⦿ Min[2] , ⦿ Max[2] , ⦿ Min[3] , ⦿ Max[3] , ⦿ Probability , ⦿ ID , ⦿ Seed
+Declare Outputs [ Random Value #1 ] : ○ Value , ○ Value[2] , ○ Value[3] , ○ Value[4]
+Declare Inputs  [ Float Curve #1 ] : ⦿ Factor , ⦿ Value
+Declare Outputs [ Float Curve #1 ] : ○ Value
+Declare Inputs  [ Math #1 ] : ⦿ Value , ⦿ Value[2] , ⦿ Value[3]
+Declare Outputs [ Math #1 ] : ○ Value
+Declare Inputs  [ Delete Geometry #1 ] : ⦿ Geometry , ⦿ Selection
+Declare Outputs [ Delete Geometry #1 ] : ○ Geometry
+Declare Inputs  [ Object Info #1 ] : ⦿ Object , ⦿ As Instance
+Declare Outputs [ Object Info #1 ] : ○ Transform , ○ Location , ○ Rotation , ○ Scale , ○ Geometry
+Declare Inputs  [ Geometry Proximity #1 ] : ⦿ Geometry , ⦿ Group ID , ⦿ Sample Position , ⦿ Sample Group ID
+Declare Outputs [ Geometry Proximity #1 ] : ○ Position , ○ Distance , ○ Is Valid
+Declare Inputs  [ Group #2 ] : ⦿ Set Galaxy Disk Shape , ⦿ Galaxy Scale , ⦿ Volume Density , ⦿ Interior Band Width , ⦿ Instance Per Voxel Density , ⦿ Instance Distribution Seed , ⦿ Voxel Amount
+Declare Outputs [ Group #2 ] : ○ Points
+Set  [ Group Output #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Active Output § to <True>
+Set  [ Group Input #1 ]:
+§ Instance Scale Max § to <20.0>
+§ Instance Scale Seed § to <117>
+§ Instance Distribution Seed § to <-117>
+§ Voxel Amount § to <500.0>
+§ Volume Density § to <50.0>
+§ Instance Per Voxel Density § to <2.0>
+§ Falloff Random Seed § to <1111>
+§ Falloff Gross Radius § to <1.0>
+§ Absolute Location § to <<Vector (-4662.9390, 610.3024)>>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ bl_width_default § to <140.0>
+§ bl_width_min § to <80.0>
+§ bl_width_max § to <400.0>
+§ bl_height_default § to <100.0>
+§ bl_height_min § to <30.0>
+§ bl_height_max § to <30.0>
+Set  [ Group #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Set Material #1 ]:
+§ Selection § to <True>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Random Value #1 ]:
+§ Max § to <1.0, 1.0, 1.0>
+§ Max[2] § to <1.0>
+§ Max[3] § to <100>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Data Type § to ©Boolean©
+Set  [ Float Curve #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Set  [ Math #1 ]:
+§ Value[2] § to <0.5>
+§ Value[3] § to <0.5>
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Operation § to ©Absolute©
+§ Clamp § to <False>
+Set  [ Delete Geometry #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Mode § to ©All©
+§ Domain § to ©Point©
+Set  [ Object Info #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Transform Space § to ©Original©
+Set  [ Geometry Proximity #1 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+§ Target Geometry § to ©Points©
+Set  [ Group #2 ]:
+§ Warning Propagation § to ©All©
+§ Show Preview § to <False>
+§ Show Texture § to <False>
+§ Icon § to ©NONE©
+Connect  [ Group #1 ] ○ Instances  to  [ Group Output #1 ] ⦿ Instances
+Connect  [ Group Input #1 ] ○ Instance Object  to  [ Group #1 ] ⦿ Instance Object
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Min  to  [ Group #1 ] ⦿ Instance Scale Min
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Max  to  [ Group #1 ] ⦿ Instance Scale Max
+Connect⋯  [ Group Input #1 ] ○ Instance Scale Seed  to  [ Group #1 ] ⦿ Instance Scale Seed
+Connect  [ Object Info #1 ] ○ Geometry  to  [ Geometry Proximity #1 ] ⦿ Geometry
+Connect⋯  [ Float Curve #1 ] ○ Value  to  [ Random Value #1 ] ⦿ Probability
+Connect⋯  [ Random Value #1 ] ○ Value[4]  to  [ Delete Geometry #1 ] ⦿ Selection
+Connect  [ Group #2 ] ○ Points  to  [ Delete Geometry #1 ] ⦿ Geometry
+Connect  [ Delete Geometry #1 ] ○ Geometry  to  [ Set Material #1 ] ⦿ Geometry
+Connect⋯  [ Math #1 ] ○ Value  to  [ Float Curve #1 ] ⦿ Value
+Connect⋯  [ Geometry Proximity #1 ] ○ Distance  to  [ Math #1 ] ⦿ Value
+Connect  [ Group Input #1 ] ○ Instance Material  to  [ Set Material #1 ] ⦿ Material
+Connect  [ Group Input #1 ] ○ Falloff Object  to  [ Object Info #1 ] ⦿ Object
+Connect⋯  [ Group Input #1 ] ○ Falloff Random Seed  to  [ Random Value #1 ] ⦿ Seed
+Connect⋯  [ Group Input #1 ] ○ Falloff Gross Radius  to  [ Float Curve #1 ] ⦿ Factor
+Connect  [ Set Material #1 ] ○ Geometry  to  [ Group #1 ] ⦿ Points
+Connect⋯  [ Group Input #1 ] ○ Instance Distribution Seed  to  [ Group #2 ] ⦿ Instance Distribution Seed
+Connect⋯  [ Group Input #1 ] ○ Set Galaxy Disk Shape  to  [ Group #2 ] ⦿ Set Galaxy Disk Shape
+Connect⋯  [ Group Input #1 ] ○ Instance Per Voxel Density  to  [ Group #2 ] ⦿ Instance Per Voxel Density
+Connect⋯  [ Group Input #1 ] ○ Volume Interior Band Width  to  [ Group #2 ] ⦿ Interior Band Width
+Connect⋯  [ Group Input #1 ] ○ Volume Density  to  [ Group #2 ] ⦿ Volume Density
+Connect⋯  [ Group Input #1 ] ○ Galaxy Scale  to  [ Group #2 ] ⦿ Galaxy Scale
+Connect⋯  [ Group Input #1 ] ○ Voxel Amount  to  [ Group #2 ] ⦿ Voxel Amount
+
+# === USER OVERRIDES ===
+SetUser  [ Group Input #1 ]:
+§ Instance Scale Min § to <0.01>
+§ Instance Scale Max § to <0.220000014>
+§ Instance Scale Seed § to <69>
+§ Instance Scale Max § to <0.220000014>
+§ Instance Scale Seed § to <69>
+§ Set Galaxy Disk Shape § to <2>
+§ Galaxy Scale § to <6.260000229>
+§ Volume Density § to <50.180000305>
+§ Instance Per Voxel Density § to <1.809999943>
+§ Instance Distribution Seed § to <-84>
+§ Voxel Amount § to <502>
+§ Galaxy Scale § to <6.260000229>
+§ Volume Density § to <50.180000305>
+§ Instance Per Voxel Density § to <1.809999943>
+§ Instance Distribution Seed § to <-84>
+§ Voxel Amount § to <502>
+§ Set Galaxy Disk Shape § to <2>
+§ Galaxy Scale § to <6.260000229>
+§ Instance Scale Min § to <0.01>
+§ Instance Scale Max § to <0.220000014>
+§ Instance Distribution Seed § to <-84>
+§ Voxel Amount § to <502>
+§ Volume Density § to <50.180000305>
+§ Instance Per Voxel Density § to <1.809999943>
+§ Falloff Random Seed § to <1115>
+§ Falloff Gross Radius § to <0.944029868>
+§ Volume Interior Band Width § to <0.02>
+§ Instance Scale Max § to <0.220000014>
+§ Instance Scale Seed § to <69>
+§ Instance Distribution Seed § to <-84>
+§ Voxel Amount § to <502>
+§ Volume Density § to <50.180000305>
+§ Instance Per Voxel Density § to <1.809999943>
+§ Falloff Random Seed § to <1115>
+§ Falloff Gross Radius § to <0.944029868>

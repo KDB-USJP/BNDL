@@ -1,0 +1,241 @@
+
+import json
+
+# Create JSON format
+json_output = {
+    "blender_geometry_nodes_socket_types": {
+        "Integer": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Subtype",
+                "Default",
+                "Min",
+                "Max",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Subtype": ["None", "Pixel", "Percentage", "Factor", "Angle", "Time", "Distance"],
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Float": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Subtype",
+                "Default",
+                "Min",
+                "Max",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Subtype": ["None", "Pixel", "Percentage", "Factor", "Angle", "Time", "Distance", "Wavelength"],
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Boolean": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Vector": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Subtype",
+                "Default",
+                "Min",
+                "Max",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Subtype": ["None", "Translation", "Direction", "Velocity", "Acceleration", "Euler", "XYZ"],
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Color": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "String": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Rotation": {
+            "properties": [
+                "Description",
+                "Default Attribute",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier",
+                "Structure Type"
+            ],
+            "details": {
+                "Structure Type": ["Auto", "Single", "Field"],
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Matrix": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Object": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Collection": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Material": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Texture": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Image": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        },
+        "Geometry": {
+            "properties": [
+                "Description",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Socket"]
+            }
+        },
+        "Menu": {
+            "properties": [
+                "Description",
+                "Default",
+                "Default Input",
+                "Hide Value",
+                "Hide in Modifier"
+            ],
+            "details": {
+                "Default Input": ["Default Value", "Socket"]
+            }
+        }
+    },
+    "metadata": {
+        "version": "Blender 4.5+",
+        "description": "Socket types and their configurable properties for Geometry Nodes Group Input sockets",
+        "notes": [
+            "Description: Tooltip text shown when hovering over the socket",
+            "Default Attribute: Named attribute to use as default value",
+            "Subtype: Specialized interpretation of the socket value",
+            "Default: Default value when socket is not connected",
+            "Min/Max: Range constraints for numeric values",
+            "Default Input: Whether to use a default value or require socket connection",
+            "Hide Value: Hide the input value field in the node",
+            "Hide in Modifier: Hide this socket in the modifier panel",
+            "Structure Type: Field vs Single value handling"
+        ]
+    }
+}
+
+# Save JSON file
+with open('socket_properties.json', 'w', encoding='utf-8') as f:
+    json.dump(json_output, f, indent=2, ensure_ascii=False)
+
+print("JSON file created: socket_properties.json")
+print("\nJSON Preview:")
+print(json.dumps(json_output, indent=2)[:1500] + "...")
